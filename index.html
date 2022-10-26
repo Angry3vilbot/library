@@ -8,6 +8,24 @@
     <title>The Library</title>
 </head>
 <body>
+    <header>
+        <h1>The Library</h1>
+    </header>
+    <div id="add-remove-book"><button onclick="revealForm()">Add Book</button><button onclick="removeBooks()" id="remover">Remove Books</button></div>
+    <div id="book-form">
+        <form id="form">
+            <input type="text" placeholder="Name" name="name" id="name">
+            <input type="text" placeholder="Author" name="author" id="author">
+            <input type="number" placeholder="Year" name="year" id="year">
+            <input type="number" placeholder="Page count" name="count" id="count">
+            <div id="checkbox">
+                <label for="check">Read it?</label>
+                <input type="checkbox" name="check" id="check">
+            </div>
+            <button id="submit" type="button">Add the book</button>
+        </form>
+    </div>
+    <div id="overlay"></div>
     <div id="book-grid"></div>
 </body>
 <script src="script.js"></script>

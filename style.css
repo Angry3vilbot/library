@@ -8,10 +8,123 @@ html{
     background-attachment: fixed;
     background-size:100% auto;
 }
+header{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 250px;
+    height: 250px;
+    padding: 45px 25px 25px 25px;
+}
+input{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+label{
+    color: white;
+    font-size: 24px;
+}
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  font: inherit;
+  color: orange;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid orange;
+  border-radius: 0.15em;
+  display: grid;
+  place-content: center;
+}
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(orange);
+  background-color: orange;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+  outline: max(2px, 0.15em) solid orange;
+  outline-offset: max(2px, 0.15em);
+}
+#overlay{
+    display: none;
+}
+#overlay.active{
+    display: block;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+#add-remove-book{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    gap: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+#add-remove-book button{
+    background-color: rgba(255, 166, 0, 0.5);
+    border-radius: 10px;
+    width: 100px;
+    border: solid 2px orange;
+    color: white;
+}
+#add-remove-book button:active{
+    background-color: rgba(255, 166, 0, 0.7);
+}
+#check{
+    margin-left: 200px;
+    margin-top: -22px;
+}
+#book-form{
+    z-index: 3;
+    display: none;
+}
+#book-form.active{
+    display: block;
+    position: fixed;
+    left: 40%;
+    top: 30%;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 300px;
+    height: 300px;
+}
+#book-form button{
+    background-color: rgba(255, 166, 0, 0.5);
+    border-radius: 10px;
+    width: 250px;
+    border: solid 2px orange;
+    color: white;
+}
+#book-form button:active{
+    background-color: rgba(255, 166, 0, 0.7);
+}
 #book-grid{
     display: grid;
-    grid-template-columns: repeat(4, 250px);
+    grid-template-columns: repeat(5, 250px);
     grid-auto-rows: 250px;
+    gap: 20px;
 }
 #book-grid div{
     background: rgba(0, 0, 0, 0.4);
@@ -27,4 +140,29 @@ html{
 }
 #book-grid div p{
     margin-left: 20px;
+}
+#book-grid button{
+    width: 150px;
+    color: white;
+    height: 25px;
+    margin-left: 20px;
+    background-color: rgba(255, 166, 0, 0.5);
+    border: solid 2px orange;
+}
+.shake{
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(-1deg); }
+  20% { transform: rotate(1deg); }
+  30% { transform: rotate(0deg); }
+  40% { transform: rotate(1deg); }
+  50% { transform: rotate(-1deg); }
+  60% { transform: rotate(0deg); }
+  70% { transform: rotate(-1deg); }
+  80% { transform: rotate(1deg); }
+  90% { transform: rotate(0deg); }
+  100% { transform: rotate(-1deg); }
 }
