@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    background-image: url('thelibrary.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:100% auto;
+}
+#book-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-auto-rows: 250px;
+}
+#book-grid div{
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 30px;
+    color: white;
+    display: grid;
+}
+#book-grid div h2{
+    justify-self: center;
+}
+#book-grid div h4{
+    margin-left: 20px;
+}
+#book-grid div p{
+    margin-left: 20px;
+}
