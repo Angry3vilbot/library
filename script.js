@@ -5,14 +5,16 @@ let form = document.getElementById('book-form')
 let submit = document.getElementById('submit')
 let remover = document.getElementById('remover')
 
-function Book(name, author, year, pages, isRead, toggleRead) {
-  this.name = name;
-  this.author = author;
-  this.year = year;
-  this.pages = pages;
-  this.isRead = isRead;
-  this.toggleRead = toggleRead;
-}
+class Book {
+    constructor(name, author, year, pages, isRead, toggleRead) {
+        this.name = name;
+        this.author = author;
+        this.year = year;
+        this.pages = pages;
+        this.isRead = isRead;
+        this.toggleRead = toggleRead;
+    }
+  }
 
 function addBookToLibrary(name, author, year, pages, isRead) {
   myLibrary.push(new Book(name, author, year, pages, isRead))
@@ -24,17 +26,13 @@ function deleteBook(){
     this.remove()
 }
 
-function changeStatus(){
-    let parent = this.parentElement
-    let val = parent.querySelector('.bookRead')
-    if(val.innerHTML > 'Read: <img src="no.svg" width="50px" height="50px"></img>'){
-        val.innerHTML = 'Read: <img src="no.svg" width="50px" height="50px"></img>'
-        this.classList.remove('isRead')
-    }
-    else{
-        val.innerHTML = 'Read: <img src="yes.svg" width="50px" height="50px"></img>'
-        this.classList.add('isRead')
-    }
+function changeStatus(i){
+    if (myLibrary[i].isRead) {
+		myLibrary[i].isRead = false;
+	} else {
+		myLibrary[i].isRead = true;
+	}
+	reloadLibrary();
 }
 
 function removeBooks(){
@@ -66,7 +64,7 @@ function reloadLibrary(){
         let bookRead = document.createElement('p')
         let toggleRead = document.createElement('button')
         toggleRead.innerHTML = 'Change Read Status'
-        toggleRead.addEventListener('click', changeStatus)
+        toggleRead.setAttribute('onclick', `changeStatus(${i})`)
         bookName.innerHTML = myLibrary[i].name
         bookAuthor.innerHTML = `By ${myLibrary[i].author}`
         bookYear.innerHTML = `Released in: ${myLibrary[i].year}`
