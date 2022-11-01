@@ -101,6 +101,22 @@ function submitBook(){
     let c = document.getElementById('year')
     let d = document.getElementById('count')
     let e = document.getElementById('check')
+    if(!a.checkValidity()){
+        alert("Enter the book's name")
+        return
+    }
+    else if(!b.checkValidity()){
+        alert("Enter the author's name")
+        return
+    }
+    else if(!c.checkValidity()){
+        alert("Enter a valid release year")
+        return
+    }
+    else if(!d.checkValidity()){
+        alert("Enter the book's page count")
+        return
+    }
     a = a.value
     b = b.value
     c = c.value
